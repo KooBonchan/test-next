@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tonejs/midi": "^2.0.28",
     "next": "15.1.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tone": "^15.0.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
