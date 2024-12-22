@@ -1,24 +1,15 @@
-import Link from "next/link";
+import Posts from "@/component/Posts";
+import PostModel from "@/model/PostModel";
+import { Suspense } from "react";
 
-interface Post {
-    userid: number;
-    id: number;
-    title: string;
-    body: string;
-}
-
-export default async function DocumentList () {
-    return fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(response => response.json())
-    .then((data) => (
-        <ul>
-        {data.map((post: Post) => (
-          <li key={"post"+post.id}>
-            <Link href={`/blog/${post.id}`}>
-              {post.title}
-            </Link>
-          </li>
-        ))}
-        </ul>
-    ))
+export default function DocumentList () {
+    const data:Promise<PostModel[]> = 
+      fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(response => response.json())
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Posts posts={data} />
+      </Suspense>
+    );
+      
 }

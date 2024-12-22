@@ -1,3 +1,17 @@
+import styles from './styles.module.css';
+import Image from 'next/image';
+
 export default function DocumentView() {
-  return <h1>Target Page</h1>
+  return (
+    <>
+      <div className={styles['image-wrapper']}>
+        <Image
+          src="/next.svg"
+          alt="NEXTJS IMAGE"
+          width={180}
+          height={38}
+        />
+      </div>
+    </>
+  );
 }
